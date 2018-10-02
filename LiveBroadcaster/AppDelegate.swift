@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WowzaGoCoderSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -12,7 +12,23 @@
 		2CEE7C94215E655500C03BBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE7C92215E655500C03BBE /* Main.storyboard */; };
 		2CEE7C96215E655500C03BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE7C95215E655500C03BBE /* Assets.xcassets */; };
 		2CEE7C99215E655500C03BBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CEE7C97215E655500C03BBE /* LaunchScreen.storyboard */; };
+		2CEE7CA4215E6D7D00C03BBE /* WowzaGoCoderSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEE7CA3215E6D7D00C03BBE /* WowzaGoCoderSDK.framework */; };
+		2CEE7CA6215E6D8B00C03BBE /* WowzaGoCoderSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEE7CA3215E6D7D00C03BBE /* WowzaGoCoderSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2CEE7CA7215E6D8C00C03BBE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2CEE7CA6215E6D8B00C03BBE /* WowzaGoCoderSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2CEE7C8B215E655500C03BBE /* LiveBroadcaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiveBroadcaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +38,7 @@
 		2CEE7C95215E655500C03BBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CEE7C98215E655500C03BBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CEE7C9A215E655500C03BBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CEE7CA3215E6D7D00C03BBE /* WowzaGoCoderSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WowzaGoCoderSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CEE7CA4215E6D7D00C03BBE /* WowzaGoCoderSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +56,7 @@
 		2CEE7C82215E655500C03BBE = {
 			isa = PBXGroup;
 			children = (
+				2CEE7CA3215E6D7D00C03BBE /* WowzaGoCoderSDK.framework */,
 				2CEE7C8D215E655500C03BBE /* LiveBroadcaster */,
 				2CEE7C8C215E655500C03BBE /* Products */,
 			);
@@ -74,6 +93,8 @@
 				2CEE7C87215E655500C03BBE /* Sources */,
 				2CEE7C88215E655500C03BBE /* Frameworks */,
 				2CEE7C89215E655500C03BBE /* Resources */,
+				2CEE7CA7215E6D8C00C03BBE /* Embed Frameworks */,
+				2CEE7CA8215E6DCD00C03BBE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -129,6 +150,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CEE7CA8215E6DCD00C03BBE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/WowzaGoCoderSDK.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2CEE7C87215E655500C03BBE /* Sources */ = {
@@ -282,12 +319,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q9299SBRY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LiveBroadcaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.clic.LiveBroadcaster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abd.livebroadcaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -300,12 +342,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q9299SBRY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = LiveBroadcaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.clic.LiveBroadcaster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abd.livebroadcaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
